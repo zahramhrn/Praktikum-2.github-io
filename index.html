@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Laporan Teori</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      transition: all 0.4s ease;
+    }
+
+    header {
+      padding: 30px 20px;
+      text-align: center;
+      color: white;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    header h2 {
+      margin: 10px 0 0;
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+
+    main {
+      max-width: 700px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    section {
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      margin: 0;
+      padding: 15px;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 6px 6px 0 0;
+    }
+
+    .content {
+      padding: 15px;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .mode-toggle {
+      display: flex;
+      justify-content: center;
+      margin: 30px 0;
+    }
+
+    .mode-toggle button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 6px;
+      border: none;
+    }
+
+    /* ===============
+       MODE 1 - RAPIH
+    =============== */
+    .mode1 {
+      background-color: #f4f6f8;
+      color: #222;
+    }
+
+    .mode1 header {
+      background-color: #005aaa;
+    }
+
+    .mode1 h3 {
+      background-color: #007acc;
+      color: white;
+    }
+
+    .mode1 .content {
+      background-color: white;
+    }
+
+    .mode1 .mode-toggle button {
+      background-color: #005aaa;
+      color: white;
+    }
+
+    /* =========================
+       MODE 2 - BERANTAKAN
+    ========================== */
+    .mode2 {
+      background-color: #e10000;
+      color: lime;
+      font-family: "Comic Sans MS", cursive;
+    }
+
+    .mode2 header {
+      background-color: black;
+      color: red;
+      text-align: left;
+      padding: 10px;
+    }
+
+    .mode2 h3 {
+      background-color: yellow;
+      color: purple;
+      font-size: 2rem;
+      border: dashed 3px red;
+      text-transform: uppercase;
+    }
+
+    .mode2 .content {
+      background-color: #4800ff;
+      color: navy;
+      font-size: 1.5rem;
+      padding: 30px 10px;
+      transform: rotate(-2deg);
+    }
+
+    .mode2 .mode-toggle button {
+      background-color: orange;
+      color: blue;
+      font-size: 1.2rem;
+      border: 4px dotted green;
+      border-radius: 0;
+    }
+  </style>
+</head>
+<body class="mode1">
+  <header>
+    <h1>LAPORAN TEORI</h1>
+    <h2>Zahra Maharani | 202332047</h2>
+  </header>
+
+  <main>
+    <section>
+      <h3 onclick="toggleContent(this)">Pendahuluan</h3>
+      <div class="content">Ini adalah isi dari bagian Pendahuluan dalam laporan teori Anda...</div>
+    </section>
+
+    <section>
+      <h3 onclick="toggleContent(this)">Landasan Teori</h3>
+      <div class="content">Bagian ini berisi teori-teori yang mendasari laporan, seperti definisi, konsep, atau dasar hukum yang relevan...</div>
+    </section>
+
+    <section>
+      <h3 onclick="toggleContent(this)">Kesimpulan</h3>
+      <div class="content">Kesimpulan menjelaskan ringkasan dari hasil dan pemahaman yang diperoleh dari laporan teori ini...</div>
+    </section>
+
+    <div class="mode-toggle">
+      <button onclick="nextMode()">Ganti Mode Tampilan</button>
+    </div>
+  </main>
+
+  <script>
+    function toggleContent(header) {
+      const content = header.nextElementSibling;
+      content.classList.toggle("hidden");
+    }
+
+    let currentMode = 1;
+
+    function nextMode() {
+      document.body.classList.remove(`mode${currentMode}`);
+      currentMode = currentMode === 1 ? 2 : 1;
+      document.body.classList.add(`mode${currentMode}`);
+    }
+  </script>
+</body>
+</html>
